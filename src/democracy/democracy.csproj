@@ -72,6 +72,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\logo.png" />
     <Content Include="Views\login.html" />
     <Content Include="Views\voting.html" />
     <Content Include="Web.config" />
