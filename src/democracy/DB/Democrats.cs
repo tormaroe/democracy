@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using democracy.Models;
+using MongoDB.Driver.Builders;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
@@ -10,33 +12,43 @@ namespace democracy.DB
 {
     public class Democrats : IUserMapper
     {
-        private static List<Tuple<string, string, Guid>> users = new List<Tuple<string, string, Guid>>();
-
-        static Democrats()
-        {
-            users.Add(new Tuple<string, string, Guid>("admin", "password", new Guid("55E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
-            users.Add(new Tuple<string, string, Guid>("user", "password", new Guid("56E1E49E-B7E8-4EEA-8459-7A906AC4D4C0")));
-        }
+        private const string COLLECTION_NAME = "democrats";
 
         public static Guid? Validate(string username, string password)
         {
-            var userRecord = users.Where(u => u.Item1 == username && u.Item2 == password).FirstOrDefault();
+            var user = LoadByUsername(username);
 
-            if (userRecord == null)
+            if (user != null && user.ValidatePassword(password))
             {
-                return null;
+                user.LastLogin = DateTime.UtcNow;
+                Save(user);
+                return user.Id;
             }
 
-            return userRecord.Item3;
+            return null;
         }
 
         public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
         {
-            var userRecord = users.Where(u => u.Item3 == identifier).FirstOrDefault();
+            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
+                .FindOneById(identifier);
+        }
 
-            return userRecord == null
-                       ? null
-                       : new Models.Democrat { UserName = userRecord.Item1 };
+        public static Democrat LoadByUsername(string username)
+        {
+            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
+                .FindOne(Query.EQ("UserName", username));
+        }
+
+        public static IEnumerable<Democrat> All()
+        {
+            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
+                .FindAll();
+        }
+
+        public static void Save(Democrat d)
+        {
+            Database.Instance.GetCollection(COLLECTION_NAME).Save(d);
         }
     }
 }

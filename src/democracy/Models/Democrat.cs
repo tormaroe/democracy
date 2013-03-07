@@ -11,8 +11,7 @@ namespace democracy.Models
 {
     public class Democrat : IUserIdentity
     {
-        private const string COLLECTION_NAME = "democrats";
-
+        
         [BsonId]
         public Guid Id { get; set; }
         public string UserName { get; set; }
@@ -24,11 +23,6 @@ namespace democracy.Models
         public Democrat()
         {
             Claims = new List<string>();
-        }
-
-        public void Save()
-        {
-            Database.Instance.GetCollection(COLLECTION_NAME).Save(this);
         }
 
         public static Democrat Create(string userName, string password)
