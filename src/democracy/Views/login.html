@@ -1,18 +1,17 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <img src="Content/images/logo.png" />
-    <form method="POST">
-        Username <input type="text" name="Username" />
-        <br />
-        Password <input name="Password" type="password" />
-        <br />
-        Remember Me <input name="RememberMe" type="checkbox" value="True" />
-        <br />
-        <input type="submit" value="Login" />
+﻿@Master['master']
+    
+@Section['Content']
+    <form method="POST" class="form-inline">
+        <div class="text-center">
+            <input type="text" name="Username" placeholder="Username" class="input-small" />
+            <input name="Password" type="password" placeholder="Password" class="input-small" />
+            <label class="checkbox" style="padding-left:15px;padding-right:15px;">
+                <input name="RememberMe" type="checkbox" value="True" />Remember me
+            </label>
+            <button type="submit" class="btn btn-success">Login</button>
+            <div style="margin-top:20px;">
+                <a href="#" onclick="alert('Not implemented yet!');">Register first time user</a>
+            </div>
+        </div>
     </form>
-</body>
-</html>
+@EndSection

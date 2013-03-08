@@ -1,17 +1,12 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Democracy : Admin : Users</title>
-</head>
-<body>
-	<h1>Admin : Users</h1>
-<table border="2">
-@Each.users 
-	<tr>
-		<td>@Current.Name</td>
-		<td>@Current.LastLogin</td>
-	</tr> 
-@EndEach
-</table>
-</body>
-</html>
+﻿@Master['master']
+    
+@Section['Content']
+	<table border="2">
+	@Each.users 
+		<tr>
+			<td>@Current.Name</td>
+			<td>@Current.LastLogin</td>
+		</tr> 
+	@EndEach
+	</table>
+@EndSection
