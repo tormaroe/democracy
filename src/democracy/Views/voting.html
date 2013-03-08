@@ -4,7 +4,6 @@
 
     <div class="navbar">
       <div class="navbar-inner">
-        <!--a class="brand" href="#">Title</a-->
         <ul class="nav">
           <li class="active"><a href="/"><i class="icon-thumbs-up"></i> Vote</a></li>
           <li><a href="users"><i class="icon-user"></i> Users</a></li>
@@ -18,21 +17,26 @@
     <div class="row">
         <div class="span12">
 	@Each.items
-        <div class="well">
+        <div class="well"  style="padding-bottom:30px;">
             <div class="pull-left" style="margin-right:30px;margin-left:10px;">
                 <table>
                     <tr>
                         <td class="text-center"><a href="#" class="btn btn-mini btn-success"><i class="icon-arrow-up icon-white"></i></a></td>
-                        <td rowspan="2" style="padding-top:10px;padding-left:10px;"><strong style="font-size:35pt;">13</strong></td>
+                        <td rowspan="2" class="text-center" style="padding-top:10px;padding-left:20px;"><strong style="font-size:35pt;">13</strong><br /><strong>VOTES</strong></td>
                     </tr>
                     <tr>
                         <td class="text-center"><a href="#" class="btn btn-mini btn-danger"><i class="icon-arrow-down icon-white"></i></a></td>
                     </tr>
                 </table>
             </div>
-            <a href="@Current.Link" class="pull-right"><i class="icon-globe"></i> More info</a>
+            <div class="pull-right">
+                <i class="icon-tags"></i> @Current.Category <br />
+                <a href="@Current.Link"><i class="icon-globe"></i> More info</a>
+            </div>
+            
             <strong>@Current.ShortDescription</strong><br />
             @Current.LongDescription
+            slkdjf asklfj asldkfm ølksda mfasløkd fmølaskd fmølkasmd fløsdkm fløk sdmaløfk masdølfmkasdøklfm øsdlkfmøasdkfmølas
         </div>
     @EndEach
             </div>
