@@ -94,6 +94,7 @@
     <Compile Include="LoginController.cs" />
     <Compile Include="MainController.cs" />
     <Compile Include="Models\Democrat.cs" />
+    <Compile Include="Models\VotingItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AdminUsers.cs" />

@@ -21,7 +21,7 @@ namespace democracy.Models
         public string PasswordSalt { get; set; }
         public int RemainingVotes { get; set; }
 
-        public Democrat()
+        private Democrat()
         {
             Claims = new List<string>();
         }

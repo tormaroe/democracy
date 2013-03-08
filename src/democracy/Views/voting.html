@@ -1,5 +1,40 @@
 ﻿@Master['master']
     
 @Section['Content']
-	<h1>Hello</h1>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <!--a class="brand" href="#">Title</a-->
+        <ul class="nav">
+          <li class="active"><a href="/"><i class="icon-thumbs-up"></i> Vote</a></li>
+          <li><a href="users"><i class="icon-user"></i> Users</a></li>
+          <li><a href="admin"><i class="icon-wrench"></i> Item Admin</a></li>
+          <li><a href="audit"><i class="icon-film"></i> Audit log</a></li>
+          <li><a href="logout"><i class="icon-lock"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+	@Each.items
+        <div class="well">
+            <div class="pull-left" style="margin-right:30px;margin-left:10px;">
+                <table>
+                    <tr>
+                        <td class="text-center"><a href="#" class="btn btn-mini btn-success"><i class="icon-arrow-up icon-white"></i></a></td>
+                        <td rowspan="2" style="padding-top:10px;padding-left:10px;"><strong style="font-size:35pt;">13</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><a href="#" class="btn btn-mini btn-danger"><i class="icon-arrow-down icon-white"></i></a></td>
+                    </tr>
+                </table>
+            </div>
+            <a href="@Current.Link" class="pull-right"><i class="icon-globe"></i> More info</a>
+            <strong>@Current.ShortDescription</strong><br />
+            @Current.LongDescription
+        </div>
+    @EndEach
+            </div>
+    </div>
 @EndSection
