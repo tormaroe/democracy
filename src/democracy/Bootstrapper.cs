@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using democracy.DB;
+using democracy.Models;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Bootstrapper;
@@ -19,6 +21,16 @@ namespace democracy
                 RedirectUrl = "~/login",
                 UserMapper = container.Resolve<IUserMapper>(),
             });
+
+            /** CREATE DEFAULT ADMIN USER IF NONE EXIST **/
+            if (Democrats.All().Count() == 0)
+            {
+                Democrats.Save(Democrat.Create(
+                    userName: "admin",
+                    password: "strong password",
+                    votes: 0,
+                    claims: "admin"));
+            }
         }
     }
 }

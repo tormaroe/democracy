@@ -19,20 +19,25 @@ namespace democracy.Models
         public DateTime LastLogin { get; set; }
         public string PasswordHash { get; private set; }
         public string PasswordSalt { get; set; }
+        public int RemainingVotes { get; set; }
 
         public Democrat()
         {
             Claims = new List<string>();
         }
 
-        public static Democrat Create(string userName, string password)
+        public static Democrat Create(string userName, string password, int votes, params string[] claims)
         {
             var user = new Democrat
             {
                 Id = Guid.NewGuid(),
                 UserName = userName,
+                RemainingVotes = votes,
             };
+
             user.SetPassword(password);
+            ((List<string>)user.Claims).AddRange(claims);
+
             return user;
         }
 
