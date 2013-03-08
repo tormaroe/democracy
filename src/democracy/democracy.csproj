@@ -80,6 +80,10 @@
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\fontawesome\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Content\fontawesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Views\login.html" />
     <Content Include="Views\master.html" />
@@ -104,6 +108,10 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\admin.users.html" />
+    <Content Include="Content\fontawesome\font\fontawesome-webfont.eot" />
+    <Content Include="Content\fontawesome\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\fontawesome\font\fontawesome-webfont.woff" />
+    <Content Include="Content\fontawesome\font\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,15 +2,20 @@
     
 @Section['Content']
     <form method="POST" class="form-inline">
-        <div class="text-center">
-            <input type="text" name="Username" placeholder="Username" class="input-small" />
+        <div class="text-center" style="margin-top:60px;">
+
+            @If.Errored
+            <div class="alert alert-error"><strong>Oh snap!</strong> Invalid username or password!</div>
+            @EndIf
+
+            <input type="text" name="Username" placeholder="Username" class="input-small" @If.HasUsername value="@Model.Username"  @EndIf />
             <input name="Password" type="password" placeholder="Password" class="input-small" />
             <label class="checkbox" style="padding-left:15px;padding-right:15px;">
                 <input name="RememberMe" type="checkbox" value="True" />Remember me
             </label>
-            <button type="submit" class="btn btn-success">Login</button>
-            <div style="margin-top:20px;">
-                <a href="#" onclick="alert('Not implemented yet!');">Register first time user</a>
+            <button type="submit" class="btn btn-success"><i class="icon-signin"></i> Login</button>
+            <div style="margin-top:50px;margin-bottom:50px;">
+                <a href="#" class="btn btn-info" onclick="alert('Not implemented yet!');"><i class="icon-magic"></i> Register first time user</a>
             </div>
         </div>
     </form>

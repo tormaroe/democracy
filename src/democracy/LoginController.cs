@@ -11,7 +11,12 @@ namespace democracy
     {
         public LoginController()
         {
-            Get["/login"] = parameters => View["login.html"];
+            Get["/login"] = parameters => View["login.html", new 
+            {
+                Errored = this.Request.Query.error.HasValue,
+                HasUsername = this.Request.Query.username.HasValue,
+                Username = this.Request.Query.username,
+            }];
 
             Get["/logout"] = parameters => this.LogoutAndRedirect("~/login");
 
