@@ -36,6 +36,13 @@ namespace democracy
 
                 return this.LoginAndRedirect(userGuid.Value, expiry);
             };
+
+            Get["/activate-user"] = parameters => View["activate-user.html"];
+
+            Post["/activate-user"] = parameters =>
+            {
+                throw new NotImplementedException();
+            };
         }
     }
 }
