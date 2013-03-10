@@ -10,11 +10,11 @@ using Nancy.Security;
 
 namespace democracy.DB
 {
-    public class Democrats : IUserMapper
+    public class Democrats : Repository<Democrat>, IUserMapper
     {
-        private const string COLLECTION_NAME = "democrats";
+        public Democrats() : base("democrats") { }
 
-        public static Guid? Validate(string username, string password)
+        public Guid? Validate(string username, string password)
         {
             var user = LoadByUsername(username);
 
@@ -30,25 +30,13 @@ namespace democracy.DB
 
         public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
         {
-            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
-                .FindOneById(identifier);
+            return Collection.FindOneById(identifier);
         }
 
-        public static Democrat LoadByUsername(string username)
+        public Democrat LoadByUsername(string username)
         {
-            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
-                .FindOne(Query.EQ("UserName", username));
+            return Collection.FindOne(Query.EQ("UserName", username));
         }
 
-        public static IEnumerable<Democrat> All()
-        {
-            return Database.Instance.GetCollection<Democrat>(COLLECTION_NAME)
-                .FindAll();
-        }
-
-        public static void Save(Democrat d)
-        {
-            Database.Instance.GetCollection(COLLECTION_NAME).Save(d);
-        }
     }
 }

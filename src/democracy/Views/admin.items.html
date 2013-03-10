@@ -1,0 +1,83 @@
+﻿@Master['master']
+    
+@Section['Content']
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li><a href="/"><i class="icon-thumbs-up"></i> Vote</a></li>
+          <li><a href="users"><i class="icon-user"></i> Users</a></li>
+          <li class="active"><a href="admin"><i class="icon-cogs"></i> Item Admin</a></li>
+          <li><a href="audit"><i class="icon-film"></i> Audit log</a></li>
+          <li><a href="logout"><i class="icon-signout"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <h2>Add item to be voted on</h2>
+            <form method="post"  class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="category">Category:</label>
+                    <div class="controls">
+                        <input type="text" name="category" id="Category" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="shortDescription">Short description:</label>
+                    <div class="controls">
+                        <input type="text" name="shortDescription" id="ShortDescription" class="input-xxlarge" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="longDescription">Long description:</label>
+                    <div class="controls">
+                        <textarea name="longDescription" id="LongDescription" class="input-xxlarge"></textarea>
+                    </div>
+                </div>                
+                <div class="control-group">
+                    <label class="control-label" for="link">More info URL:</label>
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on">http://</span>
+                            <input type="text" name="link" id="Link" class="input-xxlarge" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn" type="submit">Save</button>
+                    </div>
+                </div>        
+            </form>
+
+            <h2>Voting items</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Category</th>
+                    <th>Short description</th>
+                    <th>Created date</th>
+                    <th style="text-align:center;">Up</th>
+                    <th style="text-align:center;">Down</th>
+                    <th style="text-align:center;">Abs</th>                    
+                    <th>&nbsp;</th>
+                </tr>
+                @Each.items
+                <tr>
+                    <td>@Current.Category</td>
+                    <td>@Current.ShortDescription</td>
+                    <td>@Current.Created</td>
+                    <td style="text-align:center;">@Current.UpVotes</td>
+                    <td style="text-align:center;">@Current.DownVotes</td>
+                    <td style="text-align:center;">@Current.AbsoluteVotes</td>
+                    <td style="text-align:right;">
+                        <button class="btn btn-small btn-success"><i class="icon-edit icon-large"></i></button>
+                        <button class="btn btn-small btn-danger"><i class="icon-trash icon-large"></i></button>
+                    </td>
+                </tr>
+                @EndEach
+            </table>
+        </div>
+    </div>
+@EndSection

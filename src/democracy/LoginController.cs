@@ -21,7 +21,7 @@ namespace democracy
             Get["/logout"] = parameters => this.LogoutAndRedirect("~/login");
 
             Post["/login"] = parameters => {
-                var userGuid = DB.Democrats.Validate((string)this.Request.Form.Username, (string)this.Request.Form.Password);
+                var userGuid = new DB.Democrats().Validate((string)this.Request.Form.Username, (string)this.Request.Form.Password);
 
                 if (userGuid == null)
                 {

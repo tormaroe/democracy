@@ -17,12 +17,12 @@
     <div class="row">
         <div class="span12">
 	@Each.items
-        <div class="well"  style="padding-bottom:30px;">
+        <div class="well"  style="height:60px;">
             <div class="pull-left" style="margin-right:30px;margin-left:10px;">
                 <table>
                     <tr>
                         <td class="text-center"><a href="#" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></a></td>
-                        <td rowspan="2" class="text-center" style="padding-top:10px;padding-left:20px;"><strong style="font-size:35pt;">13</strong><br /><strong>VOTES</strong></td>
+                        <td rowspan="2" class="text-center" style="padding-top:10px;padding-left:20px;"><strong style="font-size:35pt;">@Current.AbsoluteVotes</strong><br /><strong>VOTES</strong></td>
                     </tr>
                     <tr>
                         <td class="text-center"><a href="#" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></a></td>
@@ -36,7 +36,6 @@
             
             <strong>@Current.ShortDescription</strong><br />
             @Current.LongDescription
-            slkdjf asklfj asldkfm ølksda mfasløkd fmølaskd fmølkasmd fløsdkm fløk sdmaløfk masdølfmkasdøklfm øsdlkfmøasdkfmølas
         </div>
     @EndEach
             </div>

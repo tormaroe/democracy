@@ -12,7 +12,7 @@ namespace democracy.ViewModels
 
         public AdminUsers()
         {
-            users = Democrats
+            users = new Democrats()
                 .All()
                 .Select(d => new User
                 {

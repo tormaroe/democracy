@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,11 +7,11 @@ using democracy.Models;
 
 namespace democracy.ViewModels
 {
-    public class Voting
+    public class AdminItems
     {
         public IEnumerable<VotingItem> items { get; set; }
 
-        public Voting()
+        public AdminItems()
         {
             items = new VotingItems().All()
                 .OrderByDescending(item => item.AbsoluteVotes);

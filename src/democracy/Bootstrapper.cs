@@ -23,9 +23,10 @@ namespace democracy
             });
 
             /** CREATE DEFAULT ADMIN USER IF NONE EXIST **/
-            if (Democrats.All().Count() == 0)
+            var democrats = new Democrats();
+            if (democrats.All().Count() == 0)
             {
-                Democrats.Save(Democrat.Create(
+                democrats.Save(Democrat.Create(
                     userName: "admin",
                     password: "strong password",
                     votes: 0,
