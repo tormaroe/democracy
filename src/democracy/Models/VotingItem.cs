@@ -23,7 +23,7 @@ namespace democracy.Models
             set
             {
                 _Link = value;
-                if (!_Link.StartsWith("http", StringComparison.InvariantCultureIgnoreCase))
+                if (_Link != null && !_Link.StartsWith("http", StringComparison.InvariantCultureIgnoreCase))
                     _Link = String.Format("http://{0}", _Link);
             }
         }
