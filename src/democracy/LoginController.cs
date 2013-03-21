@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using democracy.ViewModels;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Extensions;
@@ -11,7 +12,7 @@ namespace democracy
     {
         public LoginController()
         {
-            Get["/login"] = parameters => View["login.html", new 
+            Get["/login"] = parameters => View["login.html", new Login
             {
                 Errored = this.Request.Query.error.HasValue,
                 HasUsername = this.Request.Query.username.HasValue,

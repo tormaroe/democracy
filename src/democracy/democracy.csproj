@@ -89,6 +89,7 @@
     <Content Include="Views\admin.items.html" />
     <Content Include="Views\login.html" />
     <Content Include="Views\master.html" />
+    <Content Include="Views\menu.html" />
     <Content Include="Views\voting.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -108,6 +109,8 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AdminItems.cs" />
     <Compile Include="ViewModels\AdminUsers.cs" />
+    <Compile Include="ViewModels\Login.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="ViewModels\Voting.cs" />
   </ItemGroup>
   <ItemGroup>

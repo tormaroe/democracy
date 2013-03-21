@@ -7,11 +7,11 @@ using democracy.Models;
 
 namespace democracy.ViewModels
 {
-    public class AdminItems
+    public class AdminItems : ViewModel
     {
         public IEnumerable<VotingItem> items { get; set; }
 
-        public AdminItems()
+        public AdminItems() : base(isAdmin: true, activeView: "items")
         {
             items = new VotingItems().All()
                 .OrderByDescending(item => item.AbsoluteVotes);

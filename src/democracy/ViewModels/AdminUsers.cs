@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using democracy.DB;
 
 namespace democracy.ViewModels
 {
-    public class AdminUsers
+    public class AdminUsers : ViewModel
     {
         public IEnumerable<User> users {get; private set; }
 
-        public AdminUsers()
+        public AdminUsers() : base(isAdmin: true, activeView: "users")
         {
             users = new Democrats()
                 .All()
