@@ -26,6 +26,13 @@ namespace democracy
                 new VotingItems().Save(posted);
                 return Response.AsRedirect("~/admin");
             };
+
+            Get["/admin/delete/{id}"] = parameters =>
+            {
+                var id = new Guid(parameters.id);
+                new VotingItems().Delete(id);
+                return Response.AsRedirect("~/admin");
+            };
         }
     }
 }

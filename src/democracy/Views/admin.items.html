@@ -73,7 +73,7 @@
                     <td style="text-align:center;">@Current.AbsoluteVotes</td>
                     <td style="text-align:right;">
                         <button class="btn btn-small btn-success"><i class="icon-edit icon-large"></i></button>
-                        <button class="btn btn-small btn-danger"><i class="icon-trash icon-large"></i></button>
+                        <button class="btn btn-small btn-danger" onclick="democracy.deleteItem('@Current.Id');"><i class="icon-trash icon-large"></i></button>
                     </td>
                 </tr>
                 @EndEach
