@@ -87,6 +87,7 @@
     <Content Include="Content\fontawesome\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Views\admin.items.html" />
+    <Content Include="Views\admin.audit.html" />
     <Content Include="Views\login.html" />
     <Content Include="Views\master.html" />
     <Content Include="Views\menu.html" />
@@ -95,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminController.cs" />
+    <Compile Include="AuditController.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DB\Database.cs" />
     <Compile Include="DB\Democrats.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AdminItems.cs" />
     <Compile Include="ViewModels\AdminUsers.cs" />
+    <Compile Include="ViewModels\Audit.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="ViewModels\Voting.cs" />

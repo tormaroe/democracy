@@ -10,7 +10,8 @@ namespace democracy.ViewModels
     {
         public IEnumerable<VotingItem> items { get; set; }
 
-        public Voting() : base(activeView: "vote")
+        public Voting()
+            : base(activeView: "vote")
         {
             items = new VotingItems().All()
                 .OrderByDescending(item => item.AbsoluteVotes);
