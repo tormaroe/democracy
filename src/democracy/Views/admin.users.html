@@ -1,11 +1,21 @@
 ﻿@Master['master']
     
 @Section['Content']
-	<table border="2">
+	<table class="table">
+        <tr>
+            <th style="width:10px;">&nbsp;</th>
+            <th>Name</th>
+            <th>Last login</th>
+            <th>Claims</th>
+            <th>Remaining votes</th>
+        </tr>
 	@Each.users 
 		<tr>
+            <td><i class="icon-user"></i></td>
 			<td>@Current.Name</td>
 			<td>@Current.LastLogin</td>
+			<td>@Current.ClaimsString</td>
+			<td>@Current.RemainingVotes</td>
 		</tr> 
 	@EndEach
 	</table>

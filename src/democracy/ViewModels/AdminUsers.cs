@@ -17,6 +17,8 @@ namespace democracy.ViewModels
                 {
                     Name = d.UserName,
                     LastLogin = d.LastLogin,
+                    Claims = d.Claims,
+                    RemainingVotes = d.RemainingVotes
                 });
         }
 
@@ -24,6 +26,16 @@ namespace democracy.ViewModels
         {
             public string Name { get; set; }
             public DateTime LastLogin { get; set; }
+            public IEnumerable<string> Claims { get; set; }
+            public int RemainingVotes { get; set; }
+
+            public string ClaimsString
+            {
+                get
+                {
+                    return Claims.Aggregate((a, b) => a + " " + b);
+                }
+            }
         }
     }
 }
