@@ -8,11 +8,11 @@
             <div class="pull-left" style="margin-right:30px;margin-left:10px;">
                 <table>
                     <tr>
-                        <td class="text-center"><a href="#" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></a></td>
+                        <td class="text-center"><button onclick="democracy.voteUp('@Current.Id')" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></button></td>
                         <td rowspan="2" class="text-center" style="padding-top:10px;padding-left:20px;"><strong style="font-size:35pt;">@Current.AbsoluteVotes</strong><br /><strong>VOTES</strong></td>
                     </tr>
                     <tr>
-                        <td class="text-center"><a href="#" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></a></td>
+                        <td class="text-center"><button onclick="democracy.voteDown('@Current.Id')" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></button></td>
                     </tr>
                 </table>
             </div>

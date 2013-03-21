@@ -1,8 +1,15 @@
-﻿var democracy = {
+﻿var democracy = {};
 
-    deleteItem: function(id) {
+(function () {
+    var get = function (url) { document.location = url; };
+
+    democracy.deleteItem = function(id) {
         if(confirm("Are you sure you want to permanently delete this item?")) {
-            document.location = 'admin/delete/' + id;
+            get('admin/delete/' + id);
         }
-    }
-};
+    };
+
+    democracy.voteUp = function(id) { get('vote-up/' + id); };
+    democracy.voteDown = function (id) { get('vote-down/' + id); };
+
+})();

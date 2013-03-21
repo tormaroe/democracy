@@ -17,6 +17,17 @@ namespace democracy
             this.RequiresAuthentication();
 
             Get["/"] = _ => View["voting.html", new ViewModels.Voting { }];
+
+            Get["/vote-up/{id}"] = parameters =>
+            {
+
+                return Response.AsRedirect("/");
+            };
+            Get["/vote-down/{id}"] = parameters =>
+            {
+
+                return Response.AsRedirect("/");
+            };
         }
     }
 }
