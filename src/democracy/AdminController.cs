@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using democracy.DB;
 using democracy.Models;
 using Nancy;
@@ -24,6 +23,7 @@ namespace democracy
             {
                 var posted = this.Bind<VotingItem>();
                 new VotingItems().Save(posted);
+                Context.CurrentUser.AuditNewItem(posted);
                 return Response.AsRedirect("~/admin");
             };
 
@@ -31,6 +31,7 @@ namespace democracy
             {
                 var id = new Guid(parameters.id);
                 new VotingItems().Delete(id);
+                Context.CurrentUser.AuditItemRemoved(id);
                 return Response.AsRedirect("~/admin");
             };
         }

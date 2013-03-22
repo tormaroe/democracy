@@ -17,7 +17,7 @@ namespace democracy
             this.RequiresClaims(new[] { "admin" });
 
             Get["/audit"] = _ => View["admin.audit.html", new ViewModels.Audit { }];
-
+            
         }
     }
 }

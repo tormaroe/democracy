@@ -98,6 +98,8 @@
     <Compile Include="AdminController.cs" />
     <Compile Include="AuditController.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="DB\Audit.cs" />
+    <Compile Include="DB\AuditExtentions.cs" />
     <Compile Include="DB\Database.cs" />
     <Compile Include="DB\Democrats.cs" />
     <Compile Include="DB\Repository.cs" />

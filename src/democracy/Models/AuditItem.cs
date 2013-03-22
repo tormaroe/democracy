@@ -7,15 +7,15 @@ namespace democracy.Models
 {
     public class AuditItem
     {
-        public static string[] EventTypes = new[] {
-            "User created",
-            "Up-vote",
-            "Down-vote",
-            "New item",
-            "Item removed",
-            "Item changed",
+        //public static string[] EventTypes = new[] {
+        //    "User created",
+        //    "Up-vote",
+        //    "Down-vote",
+        //    "New item",
+        //    "Item removed",
+        //    "Item changed",
 
-        };
+        //};
 
         [BsonId]
         public Guid Id { get; set; }
@@ -27,7 +27,7 @@ namespace democracy.Models
 
         public AuditItem(string type, string description, string user)
         {
-            ValidateType(type);
+            //ValidateType(type);
 
             EventType = type;
             Description = description;
@@ -35,11 +35,11 @@ namespace democracy.Models
             When = DateTime.UtcNow;
         }
 
-        private void ValidateType(string type)
-        {
-            if (EventTypes.FirstOrDefault(et => et == type) == null)
-                throw new ArgumentOutOfRangeException("type", 
-                    String.Format("Audit event type {0} not allowed!", type));
-        }
+        //private void ValidateType(string type)
+        //{
+        //    if (EventTypes.FirstOrDefault(et => et == type) == null)
+        //        throw new ArgumentOutOfRangeException("type", 
+        //            String.Format("Audit event type {0} not allowed!", type));
+        //}
     }
 }

@@ -44,6 +44,8 @@ namespace democracy
             //      Add vote record
             //      subtract vote on user
 
+            // Audit!
+
             // Re-calculate aggregated vote value on item
         }
     }
