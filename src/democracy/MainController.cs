@@ -20,14 +20,31 @@ namespace democracy
 
             Get["/vote-up/{id}"] = parameters =>
             {
-
+                DoVote(parameters.id, upVote: true);
                 return Response.AsRedirect("/");
             };
+
             Get["/vote-down/{id}"] = parameters =>
             {
-
+                DoVote(parameters.id, upVote: false);
                 return Response.AsRedirect("/");
             };
+        }
+
+        private void DoVote(string id, bool upVote)
+        {
+            var itemKey = new Guid(id);
+
+            // Verify that user has votes left
+
+            // Check if it is a reversal of existing vote
+            //      remove vote record
+            //      reclaim vote on user
+            // else
+            //      Add vote record
+            //      subtract vote on user
+
+            // Re-calculate aggregated vote value on item
         }
     }
 }
