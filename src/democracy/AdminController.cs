@@ -34,6 +34,22 @@ namespace democracy
                 Context.CurrentUser.AuditItemRemoved(id);
                 return Response.AsRedirect("~/admin");
             };
+
+
+            Get["/reset"] = _ =>
+            {
+                return @"
+                        <form action=reset-data method=POST>
+                            <button type=submit>RESET DATA</button>
+                        </form>";
+            };
+
+            Post["/reset-data"] = _ =>
+            {
+                new VotingItems().Drop();
+                new Audit().Drop();
+                return Response.AsRedirect("~/");
+            };
         }
     }
 }
