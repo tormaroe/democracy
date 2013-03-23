@@ -15,6 +15,8 @@ namespace democracy.DB
         {
             get
             {
+                Console.WriteLine(Settings.Connection);
+                Console.WriteLine(Settings.Db);
                 return new MongoClient(Settings.Connection).GetServer().GetDatabase(Settings.Db);
             }
         }
