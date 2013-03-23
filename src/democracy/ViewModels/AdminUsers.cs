@@ -38,6 +38,8 @@ namespace democracy.ViewModels
             {
                 get
                 {
+                    if (Claims.Count() == 0)
+                        return "";
                     return Claims.Aggregate((a, b) => a + " " + b);
                 }
             }

@@ -16,7 +16,10 @@ namespace democracy
         {
             this.RequiresAuthentication();
 
-            Get["/"] = _ => View["voting.html", new ViewModels.Voting { }];
+            Get["/"] = _ => View["voting.html", new ViewModels.Voting 
+            { 
+                IsAdmin = Context.CurrentUser.Claims.Contains("admin") 
+            }];
 
             Get["/vote-up/{id}"] = parameters =>
             {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using democracy.DB;
+using democracy.Models;
 using democracy.ViewModels;
 using Nancy;
 using Nancy.Authentication.Forms;
@@ -42,7 +44,22 @@ namespace democracy
 
             Post["/activate-user"] = parameters =>
             {
-                throw new NotImplementedException();
+                string username = Request.Form.Username;
+                string password = Request.Form.Password;
+                string token = Request.Form.Token;
+
+                new RegistrationTokens().UseToken(token); // Throws if token does not exist - TODO: present error to user
+
+                // TODO: Validate username uniqueness - not unique, present error
+
+                // TODO: client side validate password
+
+                new Democrats().Save(Democrat.Create(
+                    userName: username,
+                    password: password,
+                    votes: 0));
+
+                return Response.AsRedirect("~/");
             };
         }
     }

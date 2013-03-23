@@ -23,6 +23,7 @@ namespace democracy.ViewModels
             public string Url { get; set; }
             public string Icon { get; set; }
             public string Text { get; set; }
+            public bool AdminOnly { get; set; }
 
             public string ToHTML(string activeName)
             {
@@ -36,9 +37,9 @@ namespace democracy.ViewModels
 
         private List<MenuItem> _menu = new List<MenuItem>(){
             new MenuItem { Name = "vote", Url = "/", Icon = "icon-thumbs-up", Text = "Vote" },
-            new MenuItem { Name = "users", Url = "users", Icon = "icon-user", Text = "Users" },
-            new MenuItem { Name = "items", Url = "admin", Icon = "icon-cogs", Text = "Item Admin" },
-            new MenuItem { Name = "audit", Url = "audit", Icon = "icon-film", Text = "Audit log" },
+            new MenuItem { Name = "users", Url = "users", Icon = "icon-user", Text = "Users", AdminOnly = true },
+            new MenuItem { Name = "items", Url = "admin", Icon = "icon-cogs", Text = "Item Admin", AdminOnly = true },
+            new MenuItem { Name = "audit", Url = "audit", Icon = "icon-film", Text = "Audit log", AdminOnly = true },
             new MenuItem { Name = "logout", Url = "logout", Icon = "icon-signout", Text = "Logout" },
         };
 
@@ -46,7 +47,9 @@ namespace democracy.ViewModels
         {
             get
             {
-                return String.Concat(_menu.Select(m => m.ToHTML(ActiveView)));
+                return String.Concat(_menu
+                    .Where(m => !m.AdminOnly || this.IsAdmin)
+                    .Select(m => m.ToHTML(ActiveView)));
             }
         }
     }
