@@ -40,6 +40,7 @@ namespace democracy.ViewModels
             new MenuItem { Name = "users", Url = "users", Icon = "icon-user", Text = "Users", AdminOnly = true },
             new MenuItem { Name = "items", Url = "admin", Icon = "icon-cogs", Text = "Item Admin", AdminOnly = true },
             new MenuItem { Name = "audit", Url = "audit", Icon = "icon-film", Text = "Audit log", AdminOnly = true },
+            new MenuItem { Name = "usersettings", Url = "usersettings", Icon = "icon-key", Text = "Settings" },
             new MenuItem { Name = "logout", Url = "logout", Icon = "icon-signout", Text = "Logout" },
         };
 

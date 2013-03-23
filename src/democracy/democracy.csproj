@@ -92,6 +92,7 @@
     <Content Include="Views\login.html" />
     <Content Include="Views\master.html" />
     <Content Include="Views\menu.html" />
+    <Content Include="Views\usersettings.html" />
     <Content Include="Views\voting.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -99,6 +100,7 @@
     <Compile Include="AdminController.cs" />
     <Compile Include="AuditController.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="UserSettingsController.cs" />
     <Compile Include="DB\Audit.cs" />
     <Compile Include="DB\AuditExtentions.cs" />
     <Compile Include="DB\Database.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="ViewModels\AdminItems.cs" />
     <Compile Include="ViewModels\AdminUsers.cs" />
     <Compile Include="ViewModels\Audit.cs" />
+    <Compile Include="ViewModels\UserSettings.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="ViewModels\Voting.cs" />

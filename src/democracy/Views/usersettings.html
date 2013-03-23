@@ -1,0 +1,53 @@
+﻿@Master['master']
+    
+@Section['Content']
+
+
+    <form method="POST" id="changePasswordForm" action="change-password" class="form-horizontal">
+        <fieldset>
+
+            <legend>Change password</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="Password">Old password</label>    
+                <div class="controls">
+                    <input type="password" id="oldPassword" name="OldPassword" placeholder="Old Password" class="input"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="Password">New password</label>    
+                <div class="controls">
+                    <input type="password" id="password1" name="Password" placeholder="New password" class="input"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="Username">New password again</label>    
+                <div class="controls">
+                    <input type="password" id="password2" name="Password2" placeholder="New password" class="input"/>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" 
+                        class="btn btn-success btn-large"><i class="icon-key"></i> Change</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    
+    <hr />
+
+@EndSection
+
+@Section['JS']
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    $("#newUserForm").submit(democracy.validateNewUser);
+    //});
+</script>
+@EndSection
+    
