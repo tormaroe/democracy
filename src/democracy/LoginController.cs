@@ -57,7 +57,7 @@ namespace democracy
                 new Democrats().Save(Democrat.Create(
                     userName: username,
                     password: password,
-                    votes: 0));
+                    votes: Settings.NumberOfVotesPrUser));
 
                 return Response.AsRedirect("~/");
             };

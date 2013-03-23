@@ -30,5 +30,14 @@ namespace democracy
             }
         }
 
+
+        public static int NumberOfVotesPrUser
+        {
+            get
+            {
+                return int.Parse(ConfigurationManager.AppSettings["number_of_votes_pr_user"]);
+            }
+        }
+
     }
 }
