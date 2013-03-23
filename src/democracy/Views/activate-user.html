@@ -7,7 +7,7 @@
             <div class="alert alert-error"><strong>Oh snap!</strong></div>
             @EndIf
 
-    <form method="POST" class="form-horizontal">
+    <form method="POST" id="newUserForm" class="form-horizontal">
         <fieldset>
 
             <legend>Create your user account</legend>
@@ -29,20 +29,21 @@
             <div class="control-group">
                 <label class="control-label" for="Password">Password</label>    
                 <div class="controls">
-                    <input type="password" name="Password" placeholder="Password" class="input"/>
+                    <input type="password" id="password1" name="Password" placeholder="Password" class="input"/>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="Username">Password again</label>    
                 <div class="controls">
-                    <input type="password" name="Password2" placeholder="Password2" class="input"/>
+                    <input type="password" id="password2" name="Password2" placeholder="Password2" class="input"/>
                 </div>
             </div>
             
             <div class="control-group">
                 <div class="controls">
-                    <button type="submit" class="btn btn-success btn-large"><i class="icon-signin"></i> Create user</button>
+                    <button type="submit" 
+                        class="btn btn-success btn-large"><i class="icon-signin"></i> Create user</button>
                     <a href="/" class="btn btn-large">Cancel</a>
                 </div>
             </div>
@@ -51,6 +52,14 @@
     </form>
     
     <hr />
-        </div>
+</div>
+@EndSection
+
+@Section['JS']
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#newUserForm").submit(democracy.validateNewUser);
+    });
+</script>
 @EndSection
     

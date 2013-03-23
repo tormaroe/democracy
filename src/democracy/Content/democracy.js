@@ -15,4 +15,19 @@
     democracy.voteDown = function (id) { get('vote-down/' + id); };
     democracy.activateUser = function (id) { get('activate-user'); };
 
+    democracy.validateNewUser = function () {
+        var p1 = $("#password1").val()
+          , p2 = $("#password2").val();
+
+        if (p1 !== p2) {
+            alert("Password fields does not match! Try again!");
+            return false;
+        }
+        if (p1 === "") {
+            alert("You need a password! Try again!");
+            return false;
+        }
+        return true;
+    };
+
 })();
