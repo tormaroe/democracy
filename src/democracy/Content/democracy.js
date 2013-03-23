@@ -11,7 +11,8 @@
 
     democracy.generateToken = function () { get('admin/generate-token'); };
 
-    democracy.voteUp = function(id) { get('vote-up/' + id); };
+    democracy.voteUp = function (id) { get('vote-up/' + id); };
     democracy.voteDown = function (id) { get('vote-down/' + id); };
+    democracy.activateUser = function (id) { get('activate-user'); };
 
 })();

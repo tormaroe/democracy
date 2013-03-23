@@ -1,0 +1,56 @@
+﻿@Master['master']
+    
+@Section['Content']
+<div style="margin-top:60px;">
+
+            @If.Errored
+            <div class="alert alert-error"><strong>Oh snap!</strong></div>
+            @EndIf
+
+    <form method="POST" class="form-horizontal">
+        <fieldset>
+
+            <legend>Create your user account</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="Token">Registration code</label>    
+                <div class="controls">
+                    <input type="text" name="Token" placeholder="Token" class="input"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="Username">Username</label>    
+                <div class="controls">
+                    <input type="text" name="Username" placeholder="Username" class="input"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="Password">Password</label>    
+                <div class="controls">
+                    <input type="password" name="Password" placeholder="Password" class="input"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="Username">Password again</label>    
+                <div class="controls">
+                    <input type="password" name="Password2" placeholder="Password2" class="input"/>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-success btn-large"><i class="icon-signin"></i> Create user</button>
+                    <a href="/" class="btn btn-large">Cancel</a>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    
+    <hr />
+        </div>
+@EndSection
+    
