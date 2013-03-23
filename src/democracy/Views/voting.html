@@ -4,25 +4,28 @@
     <div class="row">
         <div class="span12">
 	@Each.items
-        <div class="well"  style="height:60px;">
-            <div class="pull-left" style="margin-right:30px;margin-left:10px;">
-                <table>
-                    <tr>
-                        <td class="text-center"><button onclick="democracy.voteUp('@Current.Id')" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></button></td>
-                        <td rowspan="2" class="text-center" style="padding-top:10px;padding-left:20px;"><strong style="font-size:35pt;">@Current.AbsoluteVotes</strong><br /><strong>VOTES</strong></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><button onclick="democracy.voteDown('@Current.Id')" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></button></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="pull-right" style="margin-left:10px;">
-                <i class="icon-tag"></i> @Current.Category <br />
-                <a href="@Current.Link"><i class="icon-globe"></i> More info</a>
-            </div>
-            
-            <strong>@Current.ShortDescription</strong><br />
-            @Current.LongDescription
+        <div class="well">
+
+            <table style="width:100%;">
+                <tr>
+                    <td class="text-center" style="width:56px;vertical-align:top;">
+                        <button onclick="democracy.voteUp('@Current.Id')" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></button><br />
+                        <button onclick="democracy.voteDown('@Current.Id')" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></button>
+                    </td>
+                    <td class="text-center" style="width:100px;vertical-align:top;padding-top:10px;">
+                        <strong style="font-size:35pt;">@Current.AbsoluteVotes</strong><br /><strong>VOTES</strong>
+                    </td>
+                    <td style="vertical-align:top;">
+                        <strong>@Current.ShortDescription</strong><br />
+                        @Current.LongDescription
+                    </td>
+                    <td class="pull-right" style="width:100px;">
+                        <i class="icon-tag"></i> @Current.Category <br />
+                        <a href="@Current.Link"><i class="icon-globe"></i> More info</a>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     @EndEach
             </div>
