@@ -47,19 +47,32 @@ namespace democracy
                 string username = Request.Form.Username;
                 string password = Request.Form.Password;
                 string token = Request.Form.Token;
+                var repository = new Democrats();
 
-                new RegistrationTokens().UseToken(token); // Throws if token does not exist - TODO: present error to user
+                try
+                {
+                    if (repository.IsUsernameTaken(username))
+                        throw new ArgumentException(String.Format("Username '{0}' is already taken!", username));
 
-                // TODO: Validate username uniqueness - not unique, present error
+                    new RegistrationTokens().UseToken(token); // Throws ArgumentException if token does not exist
 
-                // TODO: client side validate password
+                    repository.Save(Democrat.Create(
+                        userName: username,
+                        password: password,
+                        votes: Settings.NumberOfVotesPrUser));
 
-                new Democrats().Save(Democrat.Create(
-                    userName: username,
-                    password: password,
-                    votes: Settings.NumberOfVotesPrUser));
-
-                return Response.AsRedirect("~/");
+                    return Response.AsRedirect("~/login?username=" + username);
+                }
+                catch (ArgumentException ex)
+                {
+                    return View["activate-user.html", new 
+                    { 
+                        Errored = true, 
+                        Message = ex.Message,
+                        Token = token, HasToken = true,
+                        Username = username, HasUsername = true,
+                    }];
+                }
             };
         }
     }

@@ -14,5 +14,13 @@ namespace democracy.ViewModels
             : base(loggedIn: false)
         {
         }
+
+        public bool OkButHasUsername
+        {
+            get
+            {
+                return !Errored && HasUsername;
+            }
+        }
     }
 }

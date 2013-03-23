@@ -38,5 +38,10 @@ namespace democracy.DB
             return Collection.FindOne(Query.EQ("UserName", username));
         }
 
+        public bool IsUsernameTaken(string username)
+        {
+            return Collection.Count(Query.EQ("UserName", username)) > 0;
+        }
+
     }
 }

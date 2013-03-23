@@ -13,7 +13,6 @@ namespace democracy
         {
             get
             {
-                //return ConfigurationManager.AppSettings["connection"];
                 var hqPath = ConfigurationManager.AppSettings["MONGOHQ_URL"];
                 return hqPath.Substring(0, hqPath.LastIndexOf('/'));
             }
@@ -23,8 +22,6 @@ namespace democracy
         {
             get
             {
-                //return ConfigurationManager.AppSettings["db"];
-
                 var hqPath = ConfigurationManager.AppSettings["MONGOHQ_URL"];
                 return hqPath.Substring(hqPath.LastIndexOf('/') +1);
             }

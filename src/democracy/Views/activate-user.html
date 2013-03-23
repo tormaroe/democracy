@@ -4,7 +4,7 @@
 <div style="margin-top:60px;">
 
             @If.Errored
-            <div class="alert alert-error"><strong>Oh snap!</strong></div>
+            <div class="alert alert-error"><strong>Oh snap!</strong> @Model.Message</div>
             @EndIf
 
     <form method="POST" id="newUserForm" class="form-horizontal">
@@ -15,14 +15,16 @@
             <div class="control-group">
                 <label class="control-label" for="Token">Registration code</label>    
                 <div class="controls">
-                    <input type="text" name="Token" placeholder="Token" class="input"/>
+                    <input type="text" id="token" name="Token" 
+                        placeholder="Token" class="input" @If.HasToken value="@Model.Token"  @EndIf/>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="Username">Username</label>    
                 <div class="controls">
-                    <input type="text" name="Username" placeholder="Username" class="input"/>
+                    <input type="text" id="username" name="Username" 
+                        placeholder="Username" class="input" @If.HasUsername value="@Model.Username"  @EndIf/>
                 </div>
             </div>
 
@@ -36,7 +38,7 @@
             <div class="control-group">
                 <label class="control-label" for="Username">Password again</label>    
                 <div class="controls">
-                    <input type="password" id="password2" name="Password2" placeholder="Password2" class="input"/>
+                    <input type="password" id="password2" name="Password2" placeholder="Password" class="input"/>
                 </div>
             </div>
             

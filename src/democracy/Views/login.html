@@ -5,7 +5,10 @@
         <div class="text-center" style="margin-top:60px;">
 
             @If.Errored
-            <div class="alert alert-error"><strong>Oh snap!</strong> Invalid username or password!</div>
+                <div class="alert alert-error"><strong>Oh snap!</strong> Invalid username or password!</div>
+            @EndIf
+            @If.OkButHasUsername
+                <div class="alert alert-info"><strong>Hi @Model.Username!</strong> Time to sign in below.</div>
             @EndIf
 
             <input type="text" name="Username" placeholder="Username" class="input-small" @If.HasUsername value="@Model.Username"  @EndIf />
