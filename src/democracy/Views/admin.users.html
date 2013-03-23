@@ -1,6 +1,17 @@
 ﻿@Master['master']
     
 @Section['Content']
+
+    <div class="well" style="padding-bottom:30px;">
+        <div class="pull-right">
+            <button class="btn btn-primary" onclick="democracy.generateToken();"><i class="icon-bolt"></i> Generate token</button>
+        </div>
+        <strong>Unused registration tokens:</strong>
+        @Each.tokens
+            <span class="label label-inverse">@Current</span>
+        @EndEach
+    </div>
+
 	<table class="table">
         <tr>
             <th style="width:10px;">&nbsp;</th>
@@ -9,14 +20,14 @@
             <th>Claims</th>
             <th>Remaining votes</th>
         </tr>
-	@Each.users 
-		<tr>
-            <td><i class="icon-user"></i></td>
-			<td>@Current.Name</td>
-			<td>@Current.LastLogin</td>
-			<td>@Current.ClaimsString</td>
-			<td>@Current.RemainingVotes</td>
-		</tr> 
-	@EndEach
+	    @Each.users 
+		    <tr>
+                <td><i class="icon-user"></i></td>
+			    <td>@Current.Name</td>
+			    <td>@Current.LastLogin</td>
+			    <td>@Current.ClaimsString</td>
+			    <td>@Current.RemainingVotes</td>
+		    </tr> 
+	    @EndEach
 	</table>
 @EndSection

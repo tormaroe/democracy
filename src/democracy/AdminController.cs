@@ -35,6 +35,12 @@ namespace democracy
                 return Response.AsRedirect("~/admin");
             };
 
+            Get["/admin/generate-token"] = _ =>
+            {
+                new RegistrationTokens().Generate();
+                return Response.AsRedirect("~/users");
+            };
+
 
             Get["/reset"] = _ =>
             {

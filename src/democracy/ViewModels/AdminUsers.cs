@@ -7,7 +7,8 @@ namespace democracy.ViewModels
 {
     public class AdminUsers : ViewModel
     {
-        public IEnumerable<User> users {get; private set; }
+        public IEnumerable<User> users { get; private set; }
+        public IEnumerable<string> tokens { get; private set; }
 
         public AdminUsers() : base(isAdmin: true, activeView: "users")
         {
@@ -20,6 +21,10 @@ namespace democracy.ViewModels
                     Claims = d.Claims,
                     RemainingVotes = d.RemainingVotes
                 });
+
+            tokens = new RegistrationTokens()
+                .All()
+                .Select(t => t.Value);
         }
 
         public class User

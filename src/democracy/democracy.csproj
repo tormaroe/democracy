@@ -102,12 +102,14 @@
     <Compile Include="DB\AuditExtentions.cs" />
     <Compile Include="DB\Database.cs" />
     <Compile Include="DB\Democrats.cs" />
+    <Compile Include="DB\RegistrationTokens.cs" />
     <Compile Include="DB\Repository.cs" />
     <Compile Include="DB\VotingItems.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="MainController.cs" />
     <Compile Include="Models\AuditItem.cs" />
     <Compile Include="Models\Democrat.cs" />
+    <Compile Include="Models\RegistrationToken.cs" />
     <Compile Include="Models\VotingItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
