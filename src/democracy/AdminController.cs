@@ -33,6 +33,8 @@ namespace democracy
                 new VotingItems().Delete(id);
                 Context.CurrentUser.AuditItemRemoved(id);
                 return Response.AsRedirect("~/admin");
+
+                // TODO: Must remove any votes from democrats
             };
 
             Get["/admin/generate-token"] = _ =>
@@ -50,10 +52,15 @@ namespace democracy
                         </form>";
             };
 
+            // TODO: Reset all votes only
+
+            // TODO: Reset everything including users
+
             Post["/reset-data"] = _ =>
             {
                 new VotingItems().Drop();
                 new Audit().Drop();
+                // TODO: Must remove votes from democrats...
                 return Response.AsRedirect("~/");
             };
         }
