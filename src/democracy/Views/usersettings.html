@@ -1,7 +1,9 @@
 ﻿@Master['master']
     
 @Section['Content']
-
+    @If.HasMessage
+        <div class="alert @Model.MessageAlertClass">@Model.Message</div>
+    @EndIf
 
     <form method="POST" id="changePasswordForm" action="change-password" class="form-horizontal">
         <fieldset>
@@ -45,9 +47,9 @@
 
 @Section['JS']
 <script type="text/javascript">
-    //$(document).ready(function () {
-    //    $("#newUserForm").submit(democracy.validateNewUser);
-    //});
+    $(document).ready(function () {
+        $("#changePasswordForm").submit(democracy.validatePasswordChange);
+    });
 </script>
 @EndSection
     

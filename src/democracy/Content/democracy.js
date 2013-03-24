@@ -40,4 +40,24 @@
         return true;
     };
 
+    democracy.validatePasswordChange = function () {
+        var p1 = $("#password1").val()
+          , p2 = $("#password2").val()
+          , pOld = $("#oldPassword").val();
+
+        if (pOld === "") {
+            alert("Please provide the old password! Try again!");
+            return false;
+        }
+        if (p1 !== p2) {
+            alert("New password fields does not match! Try again!");
+            return false;
+        }
+        if (p1 === "") {
+            alert("You need to provide a new password! Try again!");
+            return false;
+        }
+        return true;
+    };
+
 })();

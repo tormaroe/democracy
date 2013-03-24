@@ -38,6 +38,13 @@ namespace democracy.DB
             return Collection.FindOne(Query.EQ("UserName", username));
         }
 
+        public void ChangePassword(Guid id, string password)
+        {
+            var user = Collection.FindOneById(id);
+            user.SetPassword(password);
+            Save(user);
+        }
+
         public bool IsUsernameTaken(string username)
         {
             return Collection.Count(Query.EQ("UserName", username)) > 0;

@@ -11,6 +11,11 @@ namespace democracy.ViewModels
         public UserSettings()
             : base(activeView: "usersettings")
         {
+            MessageAlertClass = "alert-success";
         }
+
+        public string MessageAlertClass { get; set; }
+        public bool HasMessage { get { return !string.IsNullOrWhiteSpace(Message); } }
+        public string Message { get; set; }
     }
 }
