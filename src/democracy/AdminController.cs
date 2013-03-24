@@ -33,8 +33,6 @@ namespace democracy
                 new VotingItems().Delete(id);
                 Context.CurrentUser.AuditItemRemoved(id);
                 return Response.AsRedirect("~/admin");
-
-                // TODO: Must remove any votes from democrats
             };
 
             Get["/admin/generate-token"] = _ =>

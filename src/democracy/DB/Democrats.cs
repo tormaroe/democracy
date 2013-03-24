@@ -50,5 +50,14 @@ namespace democracy.DB
             return Collection.Count(Query.EQ("UserName", username)) > 0;
         }
 
+        public void DeleteVotesForItem(Guid itemId)
+        {
+            All().ToList().ForEach(user =>
+            {
+                var count = user.Votes.RemoveAll(v => v.ItemId == itemId);
+                user.RemainingVotes += count;
+                Save(user);
+            });
+        }
     }
 }

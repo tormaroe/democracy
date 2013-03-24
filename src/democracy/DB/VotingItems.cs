@@ -18,6 +18,7 @@ namespace democracy.DB
 
         public void Delete(Guid id)
         {
+            new Democrats().DeleteVotesForItem(id);
             Collection.Remove(Query.EQ("_id", id));
         }
 
