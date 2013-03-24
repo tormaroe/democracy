@@ -1,8 +1,17 @@
 ﻿@Master['master']
     
 @Section['Content']
+    <div class="pull-right" style="margin-bottom:10px;">
+        <strong>Remaining votes: </strong><span class="badge badge-success">@Model.votesLeft</span>
+    </div>
+
     <div class="row">
         <div class="span12">
+            
+    @If.HasMessage
+        <div class="alert @Model.MessageAlertClass">@Model.Message</div>
+    @EndIf
+
 	@Each.items
         <div class="well">
 

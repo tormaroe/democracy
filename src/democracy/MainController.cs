@@ -16,40 +16,44 @@ namespace democracy
         {
             this.RequiresAuthentication();
 
-            Get["/"] = _ => View["voting.html", new ViewModels.Voting 
+            Get["/"] = _ => View["voting.html", new ViewModels.Voting(Context.CurrentUser.UserName)
             { 
-                IsAdmin = Context.CurrentUser.Claims.Contains("admin") 
+                IsAdmin = Context.CurrentUser.Claims.Contains("admin"),
+                Message = this.Request.Query.msg.HasValue ? this.Request.Query.msg : "", // WIP
             }];
 
             Get["/vote-up/{id}"] = parameters =>
             {
-                DoVote(parameters.id, upVote: true);
+                DoVote(parameters.id, isUpVote: true);
                 return Response.AsRedirect("/");
             };
 
             Get["/vote-down/{id}"] = parameters =>
             {
-                DoVote(parameters.id, upVote: false);
+                DoVote(parameters.id, isUpVote: false);
                 return Response.AsRedirect("/");
             };
         }
 
-        private void DoVote(string id, bool upVote)
+        private void DoVote(string id, bool isUpVote)
         {
             var itemKey = new Guid(id);
+            var democrats = new DB.Democrats();
+            var votingItems = new DB.VotingItems();
 
-            // Verify that user has votes left
+            var item = votingItems.FindById(itemKey);
+            var user = democrats.LoadByUsername(Context.CurrentUser.UserName);
 
-            // Check if it is a reversal of existing vote
-            //      remove vote record
-            //      reclaim vote on user
-            // else
-            //      Add vote record
-            //      subtract vote on user
+            var result = user.Vote(item, isUpVote);
 
-            // Audit!
+            if (result.VoteOk)
+            {
+                democrats.Save(user);
+                votingItems.Save(item);
+            }
 
-            // Re-calculate aggregated vote value on item
+            // Audit result!
+            // Respond to user based on result
         }
     }
 }

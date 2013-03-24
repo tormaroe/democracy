@@ -11,6 +11,11 @@ namespace democracy.DB
     {
         public VotingItems() : base("votingitems") {}
 
+        public VotingItem FindById(Guid id)
+        {
+            return Collection.FindOneById(id);
+        }
+
         public void Delete(Guid id)
         {
             Collection.Remove(Query.EQ("_id", id));
