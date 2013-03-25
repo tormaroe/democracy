@@ -12,25 +12,25 @@
         <div class="alert @Model.MessageAlertClass">@Model.Message</div>
     @EndIf
 
-	@Each.items
-        <div class="well">
+	@Each.items;
+        <div class="well" id="vote@Current.SequenceNumber">
 
             <table style="width:100%;">
                 <tr>
                     <td class="text-center" style="width:56px;vertical-align:top;">
-                        <button onclick="democracy.voteUp('@Current.Id')" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></button><br />
-                        <button onclick="democracy.voteDown('@Current.Id')" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></button>
+                        <button id="btnUp@Current.SequenceNumber" onclick="democracy.voteUp('@Current.item.Id')" class="btn btn-success"><i class="icon-thumbs-up icon-white"></i></button><br />
+                        <button id="btnDown@Current.SequenceNumber" onclick="democracy.voteDown('@Current.item.Id')" class="btn btn-danger"><i class="icon-thumbs-down icon-white"></i></button>
                     </td>
                     <td class="text-center" style="width:100px;vertical-align:top;padding-top:10px;">
-                        <strong style="font-size:35pt;">@Current.AbsoluteVotes</strong><br /><strong>VOTES</strong>
+                        <strong style="font-size:35pt;">@Current.item.AbsoluteVotes</strong><br /><strong>VOTES</strong>
                     </td>
                     <td style="vertical-align:top;">
-                        <strong>@Current.ShortDescription</strong><br />
-                        @Current.LongDescription
+                        <strong>@Current.item.ShortDescription</strong><br />
+                        @Current.item.LongDescription
                     </td>
                     <td class="pull-right" style="width:100px;">
-                        <i class="icon-tag"></i> @Current.Category <br />
-                        <a href="@Current.Link"><i class="icon-globe"></i> More info</a>
+                        <i class="icon-tag"></i> @Current.item.Category <br />
+                        <a href="@Current.item.Link"><i class="icon-globe"></i> More info</a>
                     </td>
                 </tr>
             </table>
@@ -39,4 +39,19 @@
     @EndEach
             </div>
     </div>
+@EndSection
+
+@Section['JS']
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Each.UpVoteSequence
+            $("#btnUp@Current").attr("disabled", "disabled");
+            $("#vote@Current").css('background-color', '#DEFFE2');
+        @EndEach
+        @Each.DownVoteSequence
+            $("#btnDown@Current").attr("disabled", "disabled");
+            $("#vote@Current").css('background-color', '#FFDEEB');
+        @EndEach
+    });
+</script>
 @EndSection
